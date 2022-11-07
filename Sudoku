@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Sudoku {
+    public static Grille gr;
+    
+    public static void main(String[] args)throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int numeroDeFichier;
+
+        System.out.println("Voulez vous la partie 1 ,2 ou 3");
+        try {
+        numeroDeFichier = sc.nextInt();
+        File p=null;
+        
+        
+        File p1= new File("Partie1.txt");
+        File p2= new File("Partie2.txt");
+        File p3= new File("Partie3.txt");
+        switch(numeroDeFichier){
+            case 1 -> p = p1;
+            case 2 -> p = p2;
+            case 3 -> p = p3;
+            default -> System.out.println("Ce choix n'est pas disponible");
+        }
+        BufferedReader br = new BufferedReader(new FileReader(p));
+        String lecFichier = br.readLine();
+        gr = new Grille(lecFichier);
+        br.close();
+        sc.close();
+    } catch (Exception e) {
+        
+     }
+}       
+    
+} 
