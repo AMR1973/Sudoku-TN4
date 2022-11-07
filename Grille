@@ -1,0 +1,71 @@
+import java.util.*;
+public class Grille {
+    
+    // private int nbLigne;
+    // private int nbCol;
+    private int [][] grille;
+    public Grille(String fichier){
+        // nbLigne = 9;
+        // nbCol= 9;
+        grille = new int [9][9]; 
+        String [] fichierReduit = fichier.split(" ");
+        ArrayList<Integer> array= new ArrayList<>();
+        int x=0;
+        int y=0;
+        int valeur= 0 ;
+        
+        for(String triplet : fichierReduit){
+            if(triplet.length() != 3){
+                System.out.println("Le fichier ne contient pas des triplets valides (Il n'y a pas: ligne + colone + valeur)");
+            }
+            x = Character.getNumericValue(triplet.charAt(0)); 
+                
+            y = Character.getNumericValue(triplet.charAt(1));
+                if(y==9){
+                    y = y-9;
+                }
+            valeur = Character.getNumericValue(triplet.charAt(2));
+                 
+                
+            Case cs = new Case(x,y,valeur);
+            int compteur= 0;
+            for(int i =0; i< 9; i++){
+                for(int j=0; j< 9; j++){
+                    grille[cs.getLigne()][cs.getColone()]= cs.getValeurSudo();
+                    
+                    
+                }
+                
+                
+            }System.out.println(compteur);
+            
+            //array.add(x);
+            //array.add(y);
+            array.add(valeur);
+    
+        
+        }
+        
+        
+        for(int i=0;i<9;i++){
+                for(int j=0; j<9; j++){
+                    System.out.print(" | "+ grille[i][j]);
+                }
+                System.out.println(" | ");
+            }
+                System.out.println();
+                System.out.println(array);
+        }        
+    
+    
+    public boolean estDejaSurLaLigne ( int ligne, int val){
+        for(int i = 0 ; i < 9 ; i++){
+            if(grille[ligne][i]== val){
+                System.out.println("la valeur est présente plus d'une fois");
+                return false;
+            }
+        
+        }
+        return true;
+    }
+}
