@@ -1,0 +1,42 @@
+public class Case{
+
+
+    public int ligne;
+    public int colone;
+    public int valeurSudo;
+
+    public Case(int ln, int col, int val){
+        this.ligne= ln;
+        this.colone= col;
+        this.valeurSudo= val;
+    }
+    public void setLigne( int ligne){
+        this.ligne= ligne;
+    }
+    public int getLigne(){
+        return ligne;
+    }
+    public void setCol( int colone){
+        this.colone= colone;
+    }
+    public int getColone(){
+        return colone;
+    }
+    public void setVal( int valeurSudo){
+        this.valeurSudo= valeurSudo;
+    }
+    public int getValeurSudo(){
+        return valeurSudo;
+    }
+    public boolean estDejaSurLaLigne ( int line, int val){
+        this.ligne = line;
+        this.valeurSudo = val;
+        
+        
+        return true;
+    }
+    
+    
+    
+    
+}
